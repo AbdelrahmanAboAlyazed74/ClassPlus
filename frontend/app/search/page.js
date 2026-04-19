@@ -25,9 +25,9 @@ export default function Search() {
           // The API returns dates/properties that need normalization before display if needed.
           // But our properties map exactly to what the UI needs based on the DTO.
           const formatted = data.map(t => ({
-             ...t,
-             city: t.city || "القاهرة",
-             days: ['السبت', 'الأحد', 'الإثنين'] // default fallback for mock ui presentation
+            ...t,
+            city: t.city || "القاهرة",
+            days: ['السبت', 'الأحد', 'الإثنين'] // default fallback for mock ui presentation
           }));
           setAllTeachers(formatted);
         }
@@ -58,15 +58,15 @@ export default function Search() {
       <div className="card" style={{ marginBottom: '3rem', display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ flex: 1, minWidth: '250px', position: 'relative' }}>
           <SearchIcon size={20} style={{ position: 'absolute', right: '12px', top: '12px', color: '#94a3b8' }} />
-          <input 
-            type="text" 
-            placeholder={t('search_placeholder')} 
+          <input
+            type="text"
+            placeholder={t('search_placeholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{ width: '100%', padding: '12px 40px 12px 12px', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '1rem', outline: 'none' }}
           />
         </div>
-        
+
         <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
           <select value={specialtyFilter} onChange={(e) => setSpecialtyFilter(e.target.value)} style={{ padding: '12px', borderRadius: '8px', border: '1px solid #e2e8f0', outline: 'none', background: 'white' }}>
             <option value="الكل">جميع المواد</option>
@@ -98,7 +98,7 @@ export default function Search() {
         <div className="grid grid-cols-3">
           {filteredTeachers.map((teacher) => (
             <div key={teacher.id} className="card animate-fade-in" style={{ display: 'flex', flexDirection: 'column', position: 'relative' }}>
-              
+
               <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '16px' }}>
                 <div>
                   <h3 style={{ fontSize: '1.25rem', margin: '0 0 4px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -110,9 +110,9 @@ export default function Search() {
                   <span className="badge">{teacher.specialty}</span>
                 </div>
               </div>
-              
+
               <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.6', flexGrow: 1, marginBottom: '16px' }}>{teacher.bio}</p>
-              
+
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '16px', background: '#f8fafc', padding: '12px', borderRadius: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#64748b', fontSize: '0.85rem' }}>
                   <Briefcase size={16} color="var(--primary)" /> {teacher.experience} {t('years_exp')}
@@ -155,9 +155,9 @@ export default function Search() {
       )}
 
       {selectedTeacher && (
-        <BookingModal 
-          teacher={selectedTeacher} 
-          onClose={() => setSelectedTeacher(null)} 
+        <BookingModal
+          teacher={selectedTeacher}
+          onClose={() => setSelectedTeacher(null)}
         />
       )}
     </div>
