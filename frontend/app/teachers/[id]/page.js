@@ -48,13 +48,13 @@ export default function TeacherProfile() {
       </div>
 
       <div style={{ padding: '0 5%', maxWidth: '1000px', margin: '-4rem auto 0', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        
+
         {/* Profile Header Card */}
         <div className="card" style={{ padding: '2rem', display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
           <div style={{ marginTop: '-4rem', position: 'relative' }}>
             <img src={teacher.avatar} alt={teacher.name} style={{ width: 140, height: 140, borderRadius: '50%', objectFit: 'cover', border: '6px solid white', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }} />
           </div>
-          
+
           <div style={{ flex: 1 }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#475569' }}><Briefcase color="var(--primary)" /> <b>{teacher.experience}</b> سنوات الخبرة</div>
@@ -65,7 +65,7 @@ export default function TeacherProfile() {
 
             <p style={{ color: '#64748b', lineHeight: '1.8', fontSize: '1.05rem', margin: 0 }}>{teacher.bio}</p>
           </div>
-          
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', minWidth: '180px' }}>
             <button onClick={() => setIsBookingModalOpen(true)} className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '14px' }}>
               حجز موعد الآن
@@ -81,10 +81,10 @@ export default function TeacherProfile() {
           <div className="card" style={{ padding: '0' }}>
             <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0', overflowX: 'auto' }}>
               {['overview', 'availability', 'reviews'].map(tab => (
-                <button 
-                  key={tab} 
+                <button
+                  key={tab}
                   onClick={() => setActiveTab(tab)}
-                  style={{ 
+                  style={{
                     flex: 1, padding: '16px', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Cairo', fontWeight: '700', fontSize: '1rem',
                     color: activeTab === tab ? 'var(--primary)' : '#64748b',
                     borderBottom: activeTab === tab ? '3px solid var(--primary)' : '3px solid transparent',
@@ -124,7 +124,7 @@ export default function TeacherProfile() {
                   </div>
 
                   <h3 style={{ fontSize: '1.3rem', display: 'flex', alignItems: 'center', gap: '8px', margin: '2rem 0 1.5rem' }}>
-                     <Award color="var(--primary)" /> الشهادات والاعتمادات
+                    <Award color="var(--primary)" /> الشهادات والاعتمادات
                   </h3>
                   <ul style={{ paddingRight: '1.5rem', margin: 0, color: '#475569' }}>
                     {teacher.certifications.map((c, i) => (
@@ -136,12 +136,12 @@ export default function TeacherProfile() {
 
               {activeTab === 'availability' && (
                 <div className="animate-fade-in">
-                  <AvailabilityCalendar 
-                    teacher={teacher} 
+                  <AvailabilityCalendar
+                    teacher={teacher}
                     onBookDate={(date) => {
                       // Pass to booking modal
                       setIsBookingModalOpen(true);
-                    }} 
+                    }}
                   />
                 </div>
               )}
@@ -159,9 +159,9 @@ export default function TeacherProfile() {
           <div className="card" style={{ padding: '1.5rem', background: 'linear-gradient(to bottom, #f8fafc, white)' }}>
             <h4 style={{ margin: '0 0 1rem', fontSize: '1.1rem', color: '#334155' }}>معلومات إضافية</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#475569', fontSize: '0.95rem' }}>
-               <div><b>وقت الاستجابة:</b> خلال ساعة</div>
-               <div><b>إلغاء الحجز:</b> متاح قبل 24 ساعة</div>
-               <div><b>نطاق العمل:</b> {teacher.city} وضواحيها</div>
+              <div><b>وقت الاستجابة:</b> خلال ساعة</div>
+              <div><b>إلغاء الحجز:</b> متاح قبل 24 ساعة</div>
+              <div><b>نطاق العمل:</b> {teacher.city} وضواحيها</div>
             </div>
           </div>
         </div>
@@ -169,9 +169,9 @@ export default function TeacherProfile() {
       </div>
 
       {isBookingModalOpen && (
-        <BookingModal 
-          teacher={teacher} 
-          onClose={() => setIsBookingModalOpen(false)} 
+        <BookingModal
+          teacher={teacher}
+          onClose={() => setIsBookingModalOpen(false)}
         />
       )}
     </div>
