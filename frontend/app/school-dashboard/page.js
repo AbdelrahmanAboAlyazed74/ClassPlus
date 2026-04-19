@@ -110,7 +110,7 @@ export default function SchoolDashboard() {
     setConfirmedTeacher(teacher);
     setBookings(prev => [{
       id: bookingId, subject, teacher: teacher.name,
-      status: "Confirmed", date: "Today", amount: teacher.hourly_rate * duration,
+      status: "Confirmed", date: "Today", amount: teacher.hourlyRate * duration,
     }, ...prev]);
   }
 
@@ -331,7 +331,7 @@ export default function SchoolDashboard() {
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginBottom: 16 }}>
                   {[
-                    { label: "Rate", val: `${t.hourly_rate} EGP/hr` },
+                    { label: "Rate", val: `${t.hourlyRate} EGP/hr` },
                     { label: "Rating", val: `${t.rating} ★` },
                     { label: "Match", val: null, score: t.match_score },
                   ].map(cell => (

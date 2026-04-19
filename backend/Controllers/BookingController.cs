@@ -77,7 +77,7 @@ public class BookingController : ControllerBase
             subjects = t.Subjects.Select(s => s.SubjectName).ToList(),
             distance_km = Math.Round(CalculateDistance(req.school_lat, req.school_lng, t.Latitude.Value, t.Longitude.Value), 2),
             match_score = 0.90, // mock score for now
-            hourly_rate = t.HourlyRate,
+            hourlyRate = t.HourlyRate,
             rating = (int)Math.Round(t.Rating),
             phone = t.PhoneNumber
         })
